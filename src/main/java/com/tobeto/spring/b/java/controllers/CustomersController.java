@@ -7,6 +7,7 @@ import com.tobeto.spring.b.java.services.dtos.requests.customer.UpdateCustomerRe
 import com.tobeto.spring.b.java.services.dtos.responses.brand.GetBrandListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.customer.GetCustomerListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.customer.GetCustomerResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class CustomersController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddCustomerRequest addCustomerRequest){
+    public void add(@RequestBody @Valid AddCustomerRequest addCustomerRequest){
         customerService.add(addCustomerRequest);
 
 

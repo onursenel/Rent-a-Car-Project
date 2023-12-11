@@ -103,11 +103,18 @@ public class BrandManager implements BrandService {
 
     @Override
     public void add(AddBrandRequest addBrandRequest) {
-        if(addBrandRequest.getName().length() < 2 ){
-            throw new RuntimeException("Marka adı 2 harften az olamaz!!");
-        }
-        else if(addBrandRequest.getModelYear()< 2000){
-            throw new RuntimeException("Aracın model yılı 2000'den az olamaz!");
+        //AddBrandRequest dto sunda validation kullandığımız için bu koşul yapısını kullanmamız gerekmez!
+        //if(addBrandRequest.getName().length() < 2 ){
+        //    throw new RuntimeException("Marka adı 2 harften az olamaz!!");
+        //}
+        //else if(addBrandRequest.getModelYear()< 2000){
+        //    throw new RuntimeException("Aracın model yılı 2000'den az olamaz!");
+        //}
+
+
+        //Aynı isimde iki brand olamaz
+        if(brandRepository.existsByName(addBrandRequest.getName().trim())){
+            throw new RuntimeException("Aynı isimde iki marka eklenemez!!");
         }
 
 

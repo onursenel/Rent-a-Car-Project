@@ -18,6 +18,8 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
     //tarih ya da id ile entity'den veri getiriliyor
     List<Order> findByDateOrId(LocalDate date,int id);
 
+    boolean existsByDate(LocalDate date);
+
     @Query("Select new com.tobeto.spring.b.java.services.dtos.responses.order.GetOrderListResponse(o.date,o.rentalStartDate,o.rentalEndDate) FROM Order o")
     List<GetOrderListResponse> getAll2();
 

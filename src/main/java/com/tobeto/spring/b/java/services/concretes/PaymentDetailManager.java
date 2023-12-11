@@ -29,6 +29,9 @@ public class PaymentDetailManager implements PaymentDetailService {
 
     @Override
     public void add(AddPaymentDetailRequest addPaymentDetailRequest) {
+
+
+
         PaymentDetail paymentDetail = new PaymentDetail();
 
         paymentDetail.setTransactionDate(addPaymentDetailRequest.getTransactionDate());

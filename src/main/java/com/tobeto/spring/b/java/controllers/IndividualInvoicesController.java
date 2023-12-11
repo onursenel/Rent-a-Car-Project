@@ -6,6 +6,7 @@ import com.tobeto.spring.b.java.services.dtos.requests.individualInvoice.AddIndi
 import com.tobeto.spring.b.java.services.dtos.requests.individualInvoice.UpdateIndividualInvoiceRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.individualInvoice.GetIndividualInvoiceListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.individualInvoice.GetIndividualInvoiceResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class IndividualInvoicesController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddIndividualInvoiceRequest addIndividualInvoiceRequest) {
+    public void add(@RequestBody @Valid AddIndividualInvoiceRequest addIndividualInvoiceRequest) {
        individualInvoiceService.add(addIndividualInvoiceRequest);
     }
 

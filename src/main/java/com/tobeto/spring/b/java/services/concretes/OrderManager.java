@@ -94,6 +94,12 @@ public class OrderManager implements OrderService {
 
     @Override
     public void add(AddOrderRequest addOrderRequest) {
+        if(orderRepository.existsByDate(addOrderRequest.getDate())){
+            throw new RuntimeException("Aynı tarihte birden fazla sipariş olamaz!");
+        }
+
+
+
         Order order = new Order();
 
         order.setDate(addOrderRequest.getDate());

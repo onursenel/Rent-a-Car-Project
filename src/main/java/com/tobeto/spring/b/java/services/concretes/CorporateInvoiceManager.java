@@ -31,6 +31,11 @@ public class CorporateInvoiceManager implements CorporateInvoiceService {
     @Override
     public void add(AddCorporateInvoiceRequest addCorporateInvoiceRequest) {
 
+        if(corporateInvoiceRepository.existsByContactName(addCorporateInvoiceRequest.getContactName())){
+            throw new RuntimeException("Aynı isimde birden fazla şirket olamaz!!");
+
+        }
+
 
         CorporateInvoice corporateInvoice = new CorporateInvoice();
 

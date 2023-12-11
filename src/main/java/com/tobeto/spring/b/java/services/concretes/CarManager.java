@@ -93,12 +93,18 @@ public class CarManager implements CarService {
 
     @Override
     public void add(AddCarRequest addCarRequest) {
-        if(addCarRequest.getRentalFee() <1000){
-            throw new RuntimeException("aracın kiralama ücreti 1000 tl den az olamaz !");
+        //if(addCarRequest.getRentalFee() <1000){
+        //    throw new RuntimeException("aracın kiralama ücreti 1000 tl den az olamaz !");
+        //}
+        //else if(addCarRequest.getPlate().length() < 9 ){
+        //    throw new RuntimeException("Plakayı eksik girdiniz!!");
+        //}
+
+        if(carRepository.existsByPlate(addCarRequest.getPlate())){
+            throw new RuntimeException("Aynı plakadan birden fazla araç olamaz!!!");
         }
-        else if(addCarRequest.getPlate().length() < 9 ){
-            throw new RuntimeException("Plakayı eksik girdiniz!!");
-        }
+
+
         Car car =new Car();
 
         car.setPlate(addCarRequest.getPlate());

@@ -16,6 +16,9 @@ public interface BrandRepository extends JpaRepository <Brand, Integer> {
     List<Brand> findByNameIgnoreCase(String name);
 
 
+    boolean existsByName(String name);
+
+
 
     //JPQL
     @Query("SELECT new com.tobeto.spring.b.java.services.dtos.responses.brand.GetBrandListResponse(b.name) FROM Brand b Where b.name LIKE %:name%")

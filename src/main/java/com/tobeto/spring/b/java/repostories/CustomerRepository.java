@@ -15,6 +15,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     List<Customer> findByNameLike(String name);
     List<Customer> findByNameIgnoreCase(String name);
 
+    boolean existsByEmail(String email);
+
 
     //JPQL
     @Query("SELECT new com.tobeto.spring.b.java.services.dtos.responses.customer.GetCustomerListResponse(c.id,c.name,c.surname,c.address,c.email,c.phone) FROM Customer c Where c.name LIKE %:name%")

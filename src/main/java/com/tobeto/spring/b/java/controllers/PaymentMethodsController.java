@@ -5,6 +5,7 @@ import com.tobeto.spring.b.java.services.abstracts.PaymentMethodService;
 import com.tobeto.spring.b.java.services.dtos.requests.paymentMethod.AddPaymentMethodRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.paymentMethod.UpdatePaymentMethodRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.paymentMethod.GetPaymentMethodResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class PaymentMethodsController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddPaymentMethodRequest addPaymentMethodRequest) {
+    public void add(@RequestBody @Valid AddPaymentMethodRequest addPaymentMethodRequest) {
         paymentMethodService.add(addPaymentMethodRequest);
     }
 

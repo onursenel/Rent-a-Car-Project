@@ -17,6 +17,8 @@ public interface CarRepository extends JpaRepository <Car,Integer>{
     //Kiralama ücreti ile car entitysinden veri çekmek
     List<Car> findByRentalFee(int rentalFee);
 
+    boolean existsByPlate(String plate);
+
     //JPQL
 
     //Bütün verilerin getirilmesi

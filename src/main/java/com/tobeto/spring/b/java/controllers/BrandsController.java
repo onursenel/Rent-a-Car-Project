@@ -10,6 +10,7 @@ import com.tobeto.spring.b.java.services.dtos.requests.brand.UpdateBrandRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.brand.GetBrandListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.brand.GetBrandResponse;
 import com.tobeto.spring.b.java.services.abstracts.BrandService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class BrandsController {
         return brandService.getById(id);
     }
     @PostMapping
-    public void add(@RequestBody AddBrandRequest addBrandRequest){
+    public void add(@RequestBody @Valid AddBrandRequest addBrandRequest){
         brandService.add(addBrandRequest);
     }
     @PutMapping("{id}")

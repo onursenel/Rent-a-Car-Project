@@ -6,6 +6,7 @@ import com.tobeto.spring.b.java.services.dtos.requests.car.AddCarRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.car.UpdateCarRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.car.GetCarListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.car.GetCarResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class CarsController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddCarRequest addCarRequest){
+    public void add(@RequestBody @Valid AddCarRequest addCarRequest){
         carService.add(addCarRequest);
     }
 

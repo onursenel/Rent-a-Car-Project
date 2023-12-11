@@ -91,6 +91,12 @@ public class CustomerManager implements CustomerService {
 
     @Override
     public void add(AddCustomerRequest addCustomerRequest) {
+
+        if(customerRepository.existsByEmail(addCustomerRequest.getEmail())){
+            throw new RuntimeException("Aynı Emailden birden fazla kayıt olamaz!");
+        }
+
+
         Customer customer = new Customer();
 
         customer.setName(addCustomerRequest.getName());

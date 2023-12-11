@@ -4,6 +4,7 @@ import com.tobeto.spring.b.java.services.abstracts.InvoiceDetailService;
 import com.tobeto.spring.b.java.services.dtos.requests.invoiceDetail.AddInvoiceDetailRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.invoiceDetail.UpdateInvoiceDetailRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.invoiceDetail.GetInvoiceDetailResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class InvoiceDetailsController {
 
 
     @PostMapping
-    public void add(@RequestBody AddInvoiceDetailRequest addInvoiceDetailRequest) {
+    public void add(@RequestBody @Valid AddInvoiceDetailRequest addInvoiceDetailRequest) {
         invoiceDetailService.add(addInvoiceDetailRequest);
     }
 

@@ -6,6 +6,7 @@ import com.tobeto.spring.b.java.services.dtos.requests.order.AddOrderRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.order.UpdateOrderRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.order.GetOrderListResponse;
 import com.tobeto.spring.b.java.services.dtos.responses.order.GetOrderResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.cglib.core.Local;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class OrdersController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddOrderRequest addOrderRequest){
+    public void add(@RequestBody @Valid AddOrderRequest addOrderRequest){
         orderService.add(addOrderRequest);
     }
 

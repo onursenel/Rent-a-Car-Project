@@ -5,6 +5,7 @@ import com.tobeto.spring.b.java.services.abstracts.CorporateInvoiceService;
 import com.tobeto.spring.b.java.services.dtos.requests.corporateInvoice.AddCorporateInvoiceRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.corporateInvoice.UpdateCorporateInvoiceRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.corporateInvoice.GetCorporateInvoiceResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class CorporateInvoicesController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddCorporateInvoiceRequest addCorporateInvoiceRequest) {
+    public void add(@RequestBody @Valid AddCorporateInvoiceRequest addCorporateInvoiceRequest) {
         corporateInvoiceService.add(addCorporateInvoiceRequest);
     }
 

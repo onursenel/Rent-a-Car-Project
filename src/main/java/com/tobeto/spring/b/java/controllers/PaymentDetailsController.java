@@ -5,6 +5,7 @@ import com.tobeto.spring.b.java.services.abstracts.PaymentDetailService;
 import com.tobeto.spring.b.java.services.dtos.requests.paymentDetail.AddPaymentDetailRequest;
 import com.tobeto.spring.b.java.services.dtos.requests.paymentDetail.UpdatePaymentDetailRequest;
 import com.tobeto.spring.b.java.services.dtos.responses.paymentDetail.GetPaymentDetailResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class PaymentDetailsController {
     }
 
     @PostMapping
-    public void add(@RequestBody AddPaymentDetailRequest addPaymentDetailRequest) {
+    public void add(@RequestBody @Valid AddPaymentDetailRequest addPaymentDetailRequest) {
         paymentDetailService.add(addPaymentDetailRequest);
     }
 
